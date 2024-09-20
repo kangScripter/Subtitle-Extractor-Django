@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+        .container {
+          max-width: 800px;
+          margin: 40px auto;
+          padding: 20px;
+          background-color: #f9f9f9;
+          border: 1px solid #ccc;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+          margin-bottom: 20px;
+        }
+        .form-control {
+          width: 100%;
+          height: 40px;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+        }
+        .btn-upload {
+          background-color: #4CAF50;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .btn-upload:hover {
+          background-color: #3e8e41;
+        }
+        .error{
+            padding: 7px 3px 7px 3px;
+            background-color: rgb(236, 150, 164);
+            border: 2px solid red;
+            margin: 10px;
+            display: block;
+            text-align: center;
+        }
+      </style>
+
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h1>VideoSub Extractor</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="video">Upload Video</a></li>
+            <li><a href="list">My Videos</a></li>
+            {%if user.is_authenticated %}
+                <li><a href="login">Login</a></li>
+            {%else%}
+            <li><a href="logout">Logout</a></li>
+            {%endif%}
+            <!-- <li><a href="#">Register</a></li> -->
+        </ul>
+    </nav>
+  </header>
+    <div class="container">
+    <h2>Upload Video</h2>
+    <form action="video" enctype="multipart/form-data" method="post">
+        {%csrf_token%}
+        <div class="form-group">
+            {%if messages%}
+            {%for m in messages%}
+              <div class="error"><span>{{m}}</span></div>
+            {%endfor%}
+            {%endif%}
+            <label for="video-file">Select Video File:</label>
+            <input type="file" name="video" id="" accept=".mkv,.mp4">
+        </div>
+        <input class="btn-upload" type="submit" value="Upload Video">
+    </form>
+
+    </div>
+</body>
+</html>

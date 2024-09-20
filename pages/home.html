@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upload & Subtitle Extraction</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+  
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>VideoSub Extractor</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="video">Upload Video</a></li>
+                <li><a href="list">My Videos</a></li>
+                {%if user.is_authenticated %}
+                    <li><a href="logout">Logout</a></li>
+                {%else%}
+                    <li><a href="login">Login/Register</a></li>
+                {%endif%}
+                <!-- <li><a href="#">Register</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    {% if messages%}
+         {%for m in messages%}
+         <div class="alert" role="alert">
+          {{m}}
+         </div>
+         {%endfor%}
+    {%endif%}
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Upload Videos & Extract Subtitles Instantly</h2>
+        <p>Easily upload your videos and get subtitle extraction. View all your uploaded videos and manage them.</p>
+        <a href="video" class="upload-btn">Upload Your Video</a>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos">
+        <h2>Recently Uploaded Videos</h2>
+        <div class="video-list">
+            <!-- Example Video Items -->
+            {%if user.is_authenticated %}
+                {% for video in videos %}
+                    {% if video.Fkey.username == user.username %}
+                        <div class="video-item">
+                            <h3>{{video.video_filename}}</h3>
+                            <p>Subtitles:
+                                {% for subtitle in subtitles %}
+                                      {% if video.video_filename == subtitle.video_file_name %}
+                                        {{ subtitle.lang }}{% if not forloop.last %}, {% endif %}
+                                      {% endif %}
+                                {% endfor %}
+                            </p>
+                            <a href="{% url 'player' %}?video_url={{ video.video_filename }}"><button class="btn">Play</button></a>
+                        </div>
+                    {%endif%}
+                {%endfor%}
+            {%else %}
+            <div class="video-item">
+                <h3>Login Required</h3>
+                <p>Please Login
+                </p>
+        
+            </div>
+            {%endif%}
+            <!-- Add more video items dynamically -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 VideoSub Extractor. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</body>
+</html>

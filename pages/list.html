@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of videos</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style for video cards */
+.video-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #666;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+}
+
+.action-buttons .btn {
+    margin-left: 5px;
+}
+
+.btn-outline-success {
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn:hover {
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h1>VideoSub Extractor</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="video">Upload Video</a></li>
+            <li><a href="list">My Videos</a></li>
+            {%if user.is_authenticated %}
+                <li><a href="logout">Logout</a></li>
+            {%else%}
+                <li><a href="login">Login/Register</a></li>
+            {%endif%}
+            <!-- <li><a href="#">Register</a></li> -->
+        </ul>
+    </nav>
+</header>
+<div class="container mt-5">
+  <h1 class="text-center mb-5">Manage Your Videos</h1>
+
+  <!-- Video Grid -->
+  <div class="row">
+      {% for video in videos %}
+      {% if video.Fkey.username == user.username %}
+      <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card video-card shadow-sm">
+              <div class="video-thumbnail">
+                  <!-- Optional placeholder for video thumbnail -->
+                  <a href="{% url 'player' %}?video_url={{ video.video_filename }}"><img src="{% static '/img/placeholder.jpg'%}" class="img-fluid" alt="Video Thumbnail"></a> 
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">{{ video.video_filename }}</h5>
+                  <p class="card-subtitle text-muted">Subtitles: 
+                      {% for subtitle in subtitles %}
+                          {% if video.video_filename == subtitle.video_file_name %}
+                              {{ subtitle.lang }}{% if not forloop.last %}, {% endif %}
+                          {% endif %}
+                      {% endfor %}
+                  </p>
+              </div>
+              
+          </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
