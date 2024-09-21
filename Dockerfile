@@ -7,6 +7,7 @@ RUN apt-get -qq update
 RUN apt install python3 python3-pip -y 
 RUN apt install python3-dotenv -y
 RUN apt-get install -y libmediainfo-dev
+RUN apt install ffmpeg -y
 RUN apt-get -qq install -y --no-install-recommends curl git 
 
 COPY requirements.txt .
