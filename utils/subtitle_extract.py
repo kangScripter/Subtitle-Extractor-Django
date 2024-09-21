@@ -1,5 +1,6 @@
 import subprocess
 import os,re
+import platform
 from pathlib import Path
 from pymediainfo import MediaInfo
 from .languages import language_code_converter,language_converter
@@ -7,8 +8,13 @@ from srt_to_vtt import srt_to_vtt # type: ignore
 import urllib.parse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-CCExtractorEXE = BASE_DIR / 'bin' / 'ccextractor.exe'
-FFMPEG = BASE_DIR / 'bin' / 'ffmpeg.exe'
+# CCExtractorEXE = BASE_DIR / 'bin' / 'ccextractor.exe'
+if platform.system() == "Windows":
+     FFMPEG = BASE_DIR / 'bin' / 'ffmpeg.exe'
+elif platform.system() == "Linux":
+     FFMPEG = 'ffmpeg'
+else:
+    raise Exception("Os Not suppported")
 class SubtitlesExtract():
  
     def __init__(self) -> None:
