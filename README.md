@@ -99,7 +99,44 @@ You can now access the web interface at:
 http://{SERVER_IP}:8000/
 ```
 ## How to Use
-Open Your Web interface 
 
+#### Step 1: Open Your Web interface 
+![Image1
+](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot1.png)
 
+#### Step 2: Login / Register With Email or Password
+![Login Or Register](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot2.png)
 
+#### Step 3: Choose Video and Upload
+![Video](https:/# /github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot3.png)
+
+#### How to change Change Subtitles
+![Subtitles](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot%202024-09-21%20120816.png)
+
+#### How to search for a query in the Video 
+
+##### Step 1: Select the Subtitle Langauage
+##### Step 3 : Enter the Query in Query Box 
+![Query](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenrecording1.gif)
+
+#### To Manage/Views Uploaded Videos
+![managevideos](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot%202024-09-21%20123412.png)
+
+![managevides](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot5.png)
+
+## Search Functionality
+The search functionality allows users to search for specific keywords in subtitle files. This can be accessed via the web interface:
+- Navigate to a video’s page.
+- Use the search bar to enter a word or phrase.
+- Results will display timestamps where the word/phrase appears in the subtitle file.
+
+## Project Structure
+- `manage.py`: Django management script.
+- `VideoProcessing`:  Contains the Django project.
+- `utils`:  Contains FFmpeg scripts for video processing.
+- `pages`: HTML templates for the web interface.
+- `docker-compose.yml`: Docker configuration for the project.
+- `Dockerfile`: Dockerfile for the web service.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
