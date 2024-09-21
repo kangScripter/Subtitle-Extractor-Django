@@ -108,7 +108,7 @@ http://{SERVER_IP}:8000/
 ![Login Or Register](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot2.png)
 
 #### Step 3: Choose Video and Upload
-![Video](https:/# /github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot3.png)
+![Video](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot3.png)
 
 #### How to change Change Subtitles
 ![Subtitles](https://github.com/kangScripter/Subtitle-Extractor-Django/blob/main/screeshots/Screenshot%202024-09-21%20120816.png)
