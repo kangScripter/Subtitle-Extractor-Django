@@ -8,9 +8,8 @@ RUN apt install python3 python3-pip -y
 RUN apt install python3-dotenv -y
 RUN apt-get install -y libmediainfo-dev
 RUN echo deb http://ftp.uk.debian.org/debian jessie-backports main non-free \
-                  >>/etc/apt/sources.list
-RUN apt install ffmpeg --fix-missing -y
-RUN apt-get -qq install -y --no-install-recommends curl git 
+                  >>/etc/apt/sources.list && apt install ffmpeg --fix-missing -y
+RUN  apt-get -qq install -y --no-install-recommends curl git 
 
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
