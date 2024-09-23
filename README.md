@@ -148,6 +148,7 @@ The search functionality allows users to search for specific keywords in subtitl
 - [ ] Implement video processing optimizations
 - [ ] Write unit tests for key modules
 - [ ] Add more video player controls (e.g., speed control, volume control, full-screen mode)
+- [ ] Implement detailed debug logging for better issue tracking and troubleshooting
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
