@@ -1,0 +1,16 @@
+{
+  "name": "videosubextractor",
+  "description": "VideoSub Extractor Django",
+  "keywords": ["apple", "music", "python"],
+  "formation": {
+        "web": {
+            "quantity": 1
+        }
+    },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "container"
+}
