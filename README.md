@@ -141,5 +141,13 @@ The search functionality allows users to search for specific keywords in subtitl
 - `docker-compose.yml`: Docker configuration for the project.
 - `Dockerfile`: Dockerfile for the web service.
 
+## TODOs
+
+- [ ] Integrate an alternative video player, as the HTML player struggles with larger files
+- [ ] Display video metadata and file size information
+- [ ] Implement video processing optimizations
+- [ ] Write unit tests for key modules
+- [ ] Add more video player controls (e.g., speed control, volume control, full-screen mode)
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
