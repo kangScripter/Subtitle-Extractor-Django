@@ -7,8 +7,7 @@ RUN apt-get -qq update
 RUN apt install python3 python3-pip -y 
 RUN apt install python3-dotenv -y
 RUN apt-get install -y libmediainfo-dev
-RUN echo deb http://ftp.uk.debian.org/debian jessie-backports main non-free \
-                  >>/etc/apt/sources.list && apt install ffmpeg --fix-missing -y
+RUN apt update && apt install ffmpeg --fix-missing -y
 RUN  apt-get -qq install -y --no-install-recommends curl git 
 
 COPY requirements.txt .
