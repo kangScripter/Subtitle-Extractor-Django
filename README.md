@@ -7,6 +7,9 @@ This project provides a Dockerized environment for video processing and subtitle
   - Search subtitles for specific queries.
   - Manage and organize video files and metadata using a Django-based web interface.
 
+## Sample Project
+
+You can check out the live version of the project http://209.23.12.201:8000/ 
 
 ## Features
 - Subtitle Extraction: Automatically extract subtitles from video files using FFmpeg.
