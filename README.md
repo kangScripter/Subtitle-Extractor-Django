@@ -146,7 +146,7 @@ The search functionality allows users to search for specific keywords in subtitl
 - [ ] Integrate an alternative video player, as the HTML player struggles with larger files
 - [ ] Display video metadata and file size information
 - [ ] Implement video processing optimizations
-- [ ] Write unit tests for key modules
+- [ ] Enhance the user interface for a more intuitive and visually appealing design
 - [ ] Add more video player controls (e.g., speed control, volume control, full-screen mode)
 - [ ] Implement detailed debug logging for better issue tracking and troubleshooting
 
