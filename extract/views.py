@@ -27,6 +27,9 @@ def Login(requests):
         if user is not None:
             login(requests, user)
             return redirect('/video')  # redirect to home page after login
+        else:
+            messages.info(requests,"Invalid Username/Password")
+            return render(requests,"login.html")
     return render(requests, 'login.html')
 
 def Register(requests):
@@ -40,6 +43,7 @@ def Register(requests):
         user.save()
         login(requests,user)
         return redirect('/video')
+    
     return render(requests, 'register.html')
 
 def Logout(requests):
