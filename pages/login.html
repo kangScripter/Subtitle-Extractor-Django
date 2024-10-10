@@ -58,6 +58,13 @@
         <div class="card">
           <div class="card-body">
             <h2 class="card-title">Login</h2>
+            {% if messages%}
+             {%for m in messages%}
+              <div class="alert alert-danger" role="alert">
+               {{m}}
+             </div>
+            {%endfor%}
+            {%endif%}
             <form action="login" method="post">
               {% csrf_token %}
               <div class="form-group">
