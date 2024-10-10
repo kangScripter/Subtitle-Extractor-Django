@@ -38,7 +38,7 @@ def Register(requests):
         password = requests.POST['password']
         if User.objects.filter(username=username).exists():
             messages.info(requests,"Username already exists")
-            return render(requests,"Login.html")
+            return render(requests,"login.html")
         user = User.objects.create_user(username=username, password=password)
         user.save()
         login(requests,user)
